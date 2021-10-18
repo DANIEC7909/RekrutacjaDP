@@ -6,17 +6,23 @@ public class Agent : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float speed=1, multiplayer=5;
-    bool xy;
+    [SerializeField]bool xy;
+    [SerializeField] Material[] materials;
+    [SerializeField]
+    float val;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        switch (Random.Range(0, 1))
+        val = Random.Range(1, 2);
+        switch (val)
         {
-            case 0:
+            case 2:
                 xy = true;
+                GetComponent<MeshRenderer>().material = materials[0];
                 break;
             case 1:
                 xy = false;
+                GetComponent<MeshRenderer>().material = materials[1];
                 break;
         }
 
