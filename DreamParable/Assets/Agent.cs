@@ -9,10 +9,21 @@ public class Agent : MonoBehaviour
     bool xy;
     void Start()
     {
-      
+        rb = GetComponent<Rigidbody>();
+        switch (Random.Range(0, 1))
+        {
+            case 0:
+                xy = true;
+                break;
+            case 1:
+                xy = false;
+                break;
+        }
+
+
     }
 
-    
+
     void FixedUpdate()
     {
         Vector3 pos = Vector3.zero;
