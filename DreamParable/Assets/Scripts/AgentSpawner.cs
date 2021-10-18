@@ -6,8 +6,9 @@ public class AgentSpawner : MonoBehaviour
 {
     [SerializeField] [Range(0, 10)] float minTime;
     [SerializeField] [Range(0, 10)] float maxTime;
-    [SerializeField] List<GameObject> spawnedAgent;
     [SerializeField] int maxAgentCountOnScene;
+    [SerializeField] GameObject Agent;
+    [SerializeField] List<GameObject> spawnedAgent;
 
     //flags
     bool canSpawn = true;
@@ -26,8 +27,9 @@ public class AgentSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         canSpawn = true;
-        Debug.Log("spawn");
+        GameObject go = Instantiate(Agent, new Vector3(0, 1, 0), Quaternion.identity);
         //spawn obj^^
+        spawnedAgent.Add(go);
         //add this obj to spawnedA list 
     }
 }
