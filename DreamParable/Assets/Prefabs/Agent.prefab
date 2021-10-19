@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 9074828310162623604}
   - component: {fileID: 9074828310162623627}
   - component: {fileID: 9074828310162623626}
+  - component: {fileID: 847648409845467861}
   m_Layer: 0
   m_Name: Agent
-  m_TagString: Untagged
+  m_TagString: agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,11 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   multiplayer: 5
-  xy: 0
-  materials:
-  - {fileID: 2100000, guid: e8e325377a7003548b5794d48bccc1bc, type: 2}
-  - {fileID: 2100000, guid: f1849f180fa2e1a4a838963903ccffb1, type: 2}
-  val: 0
+  pos: {x: 0, y: 0, z: 0}
 --- !u!54 &9074828310162623626
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,3 +130,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &847648409845467861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074828310162623625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d62c0c63755c44399f703733c24649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  health: 0
+  isSelected: 0

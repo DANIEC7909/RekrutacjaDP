@@ -8,7 +8,7 @@ public class AgentSpawner : MonoBehaviour
     [SerializeField] [Range(0, 10)] float maxTime;
     [SerializeField] int maxAgentCountOnScene;
     [SerializeField] GameObject Agent;
-    [SerializeField] List<GameObject> spawnedAgent;
+    public List<GameObject> spawnedAgent;
 
     //flags
     bool canSpawn = true;
