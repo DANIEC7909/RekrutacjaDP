@@ -144,4 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   health: 0
-  isSelected: 0
+  isCurrentlySelected: 0
+  materials:
+  - {fileID: 2100000, guid: e8e325377a7003548b5794d48bccc1bc, type: 2}
+  - {fileID: 2100000, guid: f1849f180fa2e1a4a838963903ccffb1, type: 2}
+  mr: {fileID: 0}

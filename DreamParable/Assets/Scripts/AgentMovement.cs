@@ -8,14 +8,14 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] float speed = 1, multiplayer = 5;
   
     float val;
-    MeshRenderer mr;
+  
     [SerializeField]Vector3 pos;
     void Start()
     {
         //get all references 
         rb = GetComponent<Rigidbody>();
         val = Random.Range(0, 10);
-        mr = GetComponent<MeshRenderer>();
+  
         
     } 
 
