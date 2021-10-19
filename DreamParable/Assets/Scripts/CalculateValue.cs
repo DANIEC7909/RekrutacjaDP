@@ -10,14 +10,16 @@ public class CalculateValue : MonoBehaviour
    public void CalculateVal()
     {
         int number = 0;
+
         if (string.IsNullOrEmpty(input.text))
         {
             number = 0;
-        }
+        }//check is inputField empty
         else
         {
             number = int.Parse(input.text);
         }
+        #region DO MATH
         if (number % 5 == 0 && number % 3 == 0)
         {
             text.text = "Marco Polo";
@@ -29,10 +31,10 @@ public class CalculateValue : MonoBehaviour
         {
             text.text = "Marco";
         }
-
-        if(number== 0)
+        #endregion
+        if (number== 0)
         {
             text.text = "";
-        }
+        }//if num=0  just clear text field
     }
 }

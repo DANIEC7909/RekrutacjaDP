@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class AgentGeneral : MonoBehaviour
 {
-    public int maxHealth = 3;
-    public int health;
-    public bool isCurrentlySelected;
-     AgentSpawner agentSpawner;
-   public Material[] materials;
+    #region Fields
+    public int          maxHealth = 3;
+    public int          health;
+    public bool         isCurrentlySelected;
+           AgentSpawner agentSpawner;
+    public Material[]   materials;
     public MeshRenderer mr;
+    #endregion
     private void Start()
     {
+        //initialize health
         health = maxHealth;
+        //get all references
         agentSpawner = FindObjectOfType<AgentSpawner>();
         mr = GetComponent<MeshRenderer>();
     }
@@ -21,7 +25,7 @@ public class AgentGeneral : MonoBehaviour
     {
         if (health <= 0)
         {
-            agentSpawner.spawnedAgent.Remove(this.gameObject);
+            agentSpawner.spawnedAgent.Remove(this.gameObject);//when agent dies remove em from agent spawner list
             Destroy(gameObject);
         }
     }

@@ -4,11 +4,13 @@ using UnityEngine;
 using TMPro;
 public class CameraTouch : MonoBehaviour
 {
-    Camera camera;
-    [SerializeField]AgentGeneral selectedAgent;
-                AgentGeneral agentGeneral;
-   [SerializeField] TextMeshProUGUI agentName;
-   [SerializeField] TextMeshProUGUI agenthealth;
+    #region Fields
+                   Camera          camera;
+   [SerializeField]AgentGeneral    selectedAgent;
+                   AgentGeneral    agentGeneral;
+   [SerializeField]TextMeshProUGUI agentName;
+   [SerializeField]TextMeshProUGUI agenthealth;
+    #endregion
     private void Start()
     {
         #region Initialization

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class AgentMovement : MonoBehaviour
 {
+    #region Fields
     Rigidbody rb;
     [SerializeField] float speed = 1, multiplayer = 5;
   
     float val;
   
     [SerializeField]Vector3 pos;
+    #endregion
     void Start()
     {
         //get all references 
         rb = GetComponent<Rigidbody>();
         val = Random.Range(0, 10);
-  
-        
     } 
 
 
@@ -25,7 +25,6 @@ public class AgentMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-      
             if (val == 1 || val == 0 || val == 5 || val == 10)
             {
                 pos = new Vector3(Mathf.Sin(Time.time) * multiplayer , 0, 0);
@@ -38,11 +37,9 @@ public class AgentMovement : MonoBehaviour
             {
                 pos = new Vector3(Mathf.Sin(Time.time) * multiplayer , 0, Mathf.Sin(Time.time) * multiplayer );
             }
-      
-      
-       
 
             //simply movement 
         transform.position = Vector3.Lerp(transform.position, pos,Time.deltaTime*speed);
     }
+    
 }

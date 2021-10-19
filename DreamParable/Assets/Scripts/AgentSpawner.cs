@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class AgentSpawner : MonoBehaviour
 {
-    [SerializeField] [Range(0, 10)] float minTime;
-    [SerializeField] [Range(0, 10)] float maxTime;
-    [SerializeField] int maxAgentCountOnScene;
-    [SerializeField] GameObject Agent;
-    public List<GameObject> spawnedAgent;
+    #region Fields
+    [SerializeField] [Range(0, 10)] float            minTime;
+    [SerializeField] [Range(0, 10)] float            maxTime;
+    [SerializeField] [Tooltip("This field declare how many Agents can be spawned on the scene ")] int              maxAgentCountOnScene;
+    [SerializeField]                GameObject       Agent;
+    public                          List<GameObject> spawnedAgent;
 
     //flags
     bool canSpawn = true;
+    #endregion
+
     private void Update()
     {
         if (canSpawn == true)
