@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CameraTouch : MonoBehaviour
 {
     Camera camera;
     [SerializeField]AgentGeneral selectedAgent;
                 AgentGeneral agentGeneral;
-
+   [SerializeField] TextMeshProUGUI agentName;
+   [SerializeField] TextMeshProUGUI agenthealth;
     private void Start()
     {
+        #region Initialization
         camera = Camera.main;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        #endregion
     }
     void Update()
     {
@@ -26,18 +29,32 @@ public class CameraTouch : MonoBehaviour
                 if (hit.transform.CompareTag("agent"))
                 {
                     DeselectObj();
-
+                    #region SelectObj
                     agentGeneral = hit.transform.GetComponent<AgentGeneral>();
                     agentGeneral.isCurrentlySelected = true;
                     agentGeneral.mr.material = agentGeneral.materials[1];
                     selectedAgent = agentGeneral;
-
-                }else if (hit.transform.tag!="agent") {
+                    #endregion
+                }
+                else if (hit.transform.tag!="agent") {
                     DeselectObj();
                 }
             }
         }
+        #region Pass all data to the overlay
+        if (agentGeneral != null)
+        {
+            agentName.text = agentGeneral.name;
+            agenthealth.text = agentGeneral.health.ToString();
+        }
+        else
+        {
+            agentName.text = "None";
+            agenthealth.text = "0";
+        }
+            #endregion
     }
+
     /// <summary>
     /// This function deselects all of selected agents both in this script and in agent
     /// </summary>
