@@ -5,29 +5,29 @@ using UnityEngine;
 public class Agent : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] float speed=1, multiplayer=5;
-    [SerializeField]bool xy;
+    [SerializeField] float speed = 1, multiplayer = 5;
+    [SerializeField] bool xy;
     [SerializeField] Material[] materials;
     [SerializeField]
     float val;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        val = Random.Range(1, 2);
-        switch (val)
+        val = Random.Range(0, 10);
+        if (val == 1 || val == 0 || val == 5)
         {
-            case 2:
-                xy = true;
-                GetComponent<MeshRenderer>().material = materials[0];
-                break;
-            case 1:
-                xy = false;
-                GetComponent<MeshRenderer>().material = materials[1];
-                break;
+            xy = true;
+            GetComponent<MeshRenderer>().material = materials[0];
         }
+        if (val == 2 || val == 8 || val == 4)
+        {
+            xy = false;
+            GetComponent<MeshRenderer>().material = materials[1];
+        }
+    } 
 
 
-    }
+    
 
 
     void FixedUpdate()
