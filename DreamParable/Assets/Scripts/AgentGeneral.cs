@@ -7,10 +7,11 @@ public class AgentGeneral : MonoBehaviour
     #region Fields
     public int          maxHealth = 3;
     public int          health;
-    public bool         isCurrentlySelected;
            AgentSpawner agentSpawner;
     public Material[]   materials;
     public MeshRenderer mr;
+    //Flags
+    public bool         isCurrentlySelected;
     #endregion
     private void Start()
     {

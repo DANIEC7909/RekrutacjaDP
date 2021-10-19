@@ -11,13 +11,13 @@ public class CalculateValue : MonoBehaviour
     {
         int number = 0;
 
-        if (string.IsNullOrEmpty(input.text))
+        if (string.IsNullOrEmpty(input.text))//check is inputField empty
         {
             number = 0;
-        }//check is inputField empty
+        }
         else
         {
-            number = int.Parse(input.text);
+            number = int.Parse(input.text);//prase string to int
         }
         #region DO MATH
         if (number % 5 == 0 && number % 3 == 0)
@@ -35,6 +35,6 @@ public class CalculateValue : MonoBehaviour
         if (number== 0)
         {
             text.text = "";
-        }//if num=0  just clear text field
+        }//if num=0 clear text field
     }
 }

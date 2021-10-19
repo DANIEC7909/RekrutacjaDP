@@ -6,9 +6,12 @@ public class AgentMovement : MonoBehaviour
 {
     #region Fields
     Rigidbody rb;
-    [SerializeField] float speed = 1, multiplayer = 5;
-  
-    float val;
+    [Header("This value represents speed of agent movement")]
+    [SerializeField] float speed = 1;
+    [Header("This value represents how far agent can walk")]
+    [SerializeField] float length = 5;
+    [Header("This value represents distance to new position generation")]
+    [SerializeField] float distanceToChange=1;
   
     [SerializeField]Vector3 pos;
     #endregion
@@ -16,7 +19,7 @@ public class AgentMovement : MonoBehaviour
     {
         //get all references 
         rb = GetComponent<Rigidbody>();
-        val = Random.Range(0, 10);
+       
     } 
 
 
@@ -25,21 +28,23 @@ public class AgentMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-            if (val == 1 || val == 0 || val == 5 || val == 10)
-            {
-                pos = new Vector3(Mathf.Sin(Time.time) * multiplayer , 0, 0);
-            }
-            else if (val == 2 || val == 8 || val == 4||val==6)
-            {
-                pos = new Vector3(0, 0, Mathf.Sin(Time.time) * multiplayer );
-            }
-           else if (val == 9 || val == 7 || val == 3)
-            {
-                pos = new Vector3(Mathf.Sin(Time.time) * multiplayer , 0, Mathf.Sin(Time.time) * multiplayer );
-            }
-
-            //simply movement 
+       
+        if (Vector3.Distance(transform.position, pos) < distanceToChange)
+        {
+            pos =CalculateNewPosition(length);
+            
+        }
+        //simply movement 
         transform.position = Vector3.Lerp(transform.position, pos,Time.deltaTime*speed);
     }
-    
+    /// <summary>
+    /// This func generate random position based on vector length
+    /// </summary>
+    /// <param name="length">length of vector</param>
+    /// <returns></returns>
+    Vector3 CalculateNewPosition(float length)
+    {
+        Vector3 pos = new Vector3(Random.Range(-length, length), 0, Random.Range(-length, length));
+        return pos;
+    }
 }

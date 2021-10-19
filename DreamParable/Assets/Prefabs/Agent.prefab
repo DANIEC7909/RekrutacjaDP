@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac216d3ec1bd7c428c6b0728a456110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  multiplayer: 5
+  speed: 3
+  length: 5
   pos: {x: 0, y: 0, z: 0}
 --- !u!54 &9074828310162623626
 Rigidbody:
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   health: 0
-  isCurrentlySelected: 0
   materials:
   - {fileID: 2100000, guid: e8e325377a7003548b5794d48bccc1bc, type: 2}
   - {fileID: 2100000, guid: f1849f180fa2e1a4a838963903ccffb1, type: 2}
   mr: {fileID: 0}
+  isCurrentlySelected: 0
