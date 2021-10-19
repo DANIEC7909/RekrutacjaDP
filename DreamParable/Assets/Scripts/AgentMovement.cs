@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Agent : MonoBehaviour
+public class AgentMovement : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float speed = 1, multiplayer = 5;
-   
-    [SerializeField]
+  
     float val;
-
-    [SerializeField] MeshRenderer mr;
+    MeshRenderer mr;
     [SerializeField]Vector3 pos;
     void Start()
     {
+        //get all references 
         rb = GetComponent<Rigidbody>();
         val = Random.Range(0, 10);
         mr = GetComponent<MeshRenderer>();
@@ -35,7 +34,7 @@ public class Agent : MonoBehaviour
             {
                 pos = new Vector3(0, 0, Mathf.Sin(Time.time) * multiplayer );
             }
-            if (val == 9 || val == 7 || val == 3)
+           else if (val == 9 || val == 7 || val == 3)
             {
                 pos = new Vector3(Mathf.Sin(Time.time) * multiplayer , 0, Mathf.Sin(Time.time) * multiplayer );
             }
@@ -43,7 +42,7 @@ public class Agent : MonoBehaviour
       
        
 
-
+            //simply movement 
         transform.position = Vector3.Lerp(transform.position, pos,Time.deltaTime*speed);
     }
 }
