@@ -10,7 +10,7 @@ public class CalculateValue : MonoBehaviour
    public void CalculateVal()
     {
         int number = 0;
-        if (string.IsNullOrEmpty(text.text))
+        if (string.IsNullOrEmpty(input.text))
         {
             number = 0;
         }
